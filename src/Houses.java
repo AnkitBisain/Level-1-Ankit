@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 import org.jointheleague.graphical.robot.Robot;
 
 public class Houses {
@@ -6,16 +8,16 @@ public class Houses {
 	public static void main(String[] args) {
 		Houses house = new Houses();
 		house.begin();
-		house.buildHouse("s", 0);
-		house.buildHouse("m", 45);
-		house.buildHouse("l", 0);
-		house.buildHouse("m", 20);
-		house.buildHouse("m", 60);
-		house.buildHouse("l", 30);
-		house.buildHouse("s", 15);
+		house.buildHouse("s", false, Color.blue);
+		house.buildHouse("m", true, Color.green);
+		house.buildHouse("l", false, Color.cyan);
+		house.buildHouse("m", true, Color.magenta);
+		house.buildHouse("m", true, Color.pink);
+		house.buildHouse("l", false, Color.yellow);
+		house.buildHouse("s", false, Color.orange);
 	}
 
-	public void buildHouse(String size, int peakangle) {
+	public void buildHouse(String size, Boolean tilt, Color color) {
 		int x = 0;
 		if (size.equals("s")) {
 			x = 1;
@@ -28,13 +30,14 @@ public class Houses {
 		}
 		bot.penDown();
 		bot.setPenWidth(5);
-		bot.setRandomPenColor();
+		bot.setPenColor(color);;;
 		bot.move(140 * x);
-		bot.turn(90 - peakangle);
-		bot.move(35 * x);
-		bot.turn(2 * peakangle);
-		bot.move(35 * x);
-		bot.turn(90 - peakangle);
+		if(tilt == true) {
+			pRoof(x);
+		}
+		if(tilt==false) {
+			fRoof(x);
+		}
 		bot.move(140 * x);
 		bot.turn(-90);
 		bot.setPenColor(0, 200, 0);
@@ -48,4 +51,16 @@ public class Houses {
 		bot.setSpeed(10);
 		bot.moveTo(100, 800);
 	}
-}
+	public void pRoof(int x) {
+		bot.turn(45);
+		bot.move(25*x);
+		bot.turn(90);
+		bot.move(25*x);
+		bot.turn(45);
+	}
+	public void fRoof(int x) {
+		bot.turn(90);
+		bot.move(35*x);
+		bot.turn(90);
+	}
+	}
