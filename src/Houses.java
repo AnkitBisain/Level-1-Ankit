@@ -11,7 +11,7 @@ public class Houses {
 		house.buildHouse("l", 0);
 		house.buildHouse("m", 20);
 		house.buildHouse("m", 60);
-		house.buildHouse("l", 0);
+		house.buildHouse("l", 30);
 		house.buildHouse("s", 15);
 	}
 
