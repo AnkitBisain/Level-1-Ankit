@@ -3,6 +3,8 @@
 /217.jpg
 /BookOfIllusions.class
 /DrumKit.class
+/Fish.class
+/Hacker.class
 /Houses.class
 /Jeopardy.class
 /Robot.jar
@@ -11,9 +13,11 @@
 /download.jpg
 /images.png
 /left.png
+/methodpractice.class
 /right.png
 /up.png
-/Hack.class
-/Fish.class
-/Hacker.class
-/methodpractice.class
+/ne.class
+/nes.class
+/NetflixRunner.class
+/Movie.class
+/NetflixQueue.class
