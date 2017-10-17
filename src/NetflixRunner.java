@@ -1,11 +1,11 @@
 
 public class NetflixRunner {
 	public static void main(String[] args) {
-		Movie mov5 = new Movie("My Little Pony: An Adventure in Equestria",5);
-		Movie mov4 = new Movie("Dora the Explorer",4);
-		Movie mov3 = new Movie("Twilight",3);
-		Movie mov2 = new Movie("To be fair, one has to have a high IQ to understand",2);
-		Movie mov1 = new Movie("Rick and Morty",1);
+		Movie mov5 = new Movie("My Little Pony: An Adventure in Equestria", 5, 420);
+		Movie mov4 = new Movie("Dora the Explorer", 4, 21);
+		Movie mov3 = new Movie("Twilight", 3, 1738);
+		Movie mov2 = new Movie("To be fair, one has to have a high IQ to understand", 2, 140);
+		Movie mov1 = new Movie("Rick and Morty", 1, 9001);
 		System.out.println(mov5.getTicketPrice());
 		System.out.println(mov4.getTicketPrice());
 		System.out.println(mov3.getTicketPrice());

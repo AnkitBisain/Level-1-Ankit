@@ -2,10 +2,12 @@ public class Movie implements Comparable<Movie> {
 
 	private String title;
 	private int stars;
+	private int length;
 
-	public Movie(String title, int stars) {
+	public Movie(String title, int stars, int length) {
 		this.title = title;
 		this.stars = stars;
+		this.length = length;
 	}
 
 	public String getTitle() {
@@ -16,8 +18,12 @@ public class Movie implements Comparable<Movie> {
 		return this.stars;
 	}
 
+	public int getLength() {
+		return this.length;
+	}
+
 	public String toString() {
-		return "\"" + title + "\" - " + stars + " stars";
+		return "\"" + title + "\" - " + stars + " stars" + "\" - " + length + " minutes";
 	}
 
 public String getTicketPrice() {
