@@ -33,6 +33,5 @@ public class calculator {
 		panel.add(plus);
 		panel.add(text1);
 		panel.add(text2);
-		div.addAncestorListener(this);
 	}
 }
