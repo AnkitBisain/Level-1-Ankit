@@ -36,19 +36,56 @@ public class Pizza {
 		this.price = newPrice;
 	}
 
-	public static void main(String[] args) {
-		Pizza pizza1 = new Pizza("medium", 500, 8, 7.99);
-		Pizza pizza2 = new Pizza("large", 800, 8, 10.99);
-		Pizza pizza3 = new Pizza("small", 300, 7, 4.99);
-		Pizza pizza4 = new Pizza("medium", 600, 9, 6.99);
-		Pizza pizza5 = new Pizza("small", 400, 4, 5.99);
-		Pizza pizza6 = new Pizza("large", 900, 6, 9.99);
-		System.out.println(pizza1.getTastiness());
-		pizza1.setTastiness(10);
-		System.out.println(pizza1.getTastiness());
-		System.out.println(pizza2.getPrice());
-		pizza2.setPrice(12.99);
-		System.out.println(pizza2.getPrice());
+	public boolean isHealthy() {
+		boolean health;
+		if (this.size == "small") {
+			if (this.calories <= 500) {
+				health = true;
+			} else {
+				health = false;
+			}
+		} else if (this.size == "medium") {
+			if (this.calories <= 1000) {
+				health = true;
+			} else {
+				health = false;
+			}
+		} else if (this.size == "large") {
+			if (this.calories <= 1500) {
+				health = true;
+			} else {
+				health = false;
+			}
+		} else if (this.size == "extra large") {
+			if (this.calories <= 2000) {
+				health = true;
+			} else {
+				health = false;
+			}
+		} else {
+			return false;
+		}
+		return health;
+	}
 
+	public static void main(String[] args) {
+		Pizza pizza1 = new Pizza("small", 500, 7, 4.99);
+		Pizza pizza2 = new Pizza("small", 550, 4, 5.99);
+		Pizza pizza3 = new Pizza("medium", 800, 9, 6.99);
+		Pizza pizza4 = new Pizza("medium", 1100, 8, 7.99);
+		Pizza pizza5 = new Pizza("large", 1300, 8, 8.99);
+		Pizza pizza6 = new Pizza("large", 1800, 6, 9.99);
+		Pizza pizza7 = new Pizza("extra large", 1900, 7, 10.99);
+		Pizza pizza8 = new Pizza("extra large", 2500, 5, 11.99);
+		Pizza notapizza = new Pizza("taco", 0, 9001, 0);
+		System.out.println("pizza1 is healthy: " + pizza1.isHealthy());
+		System.out.println("pizza2 is healthy: " + pizza2.isHealthy());
+		System.out.println("pizza3 is healthy: " + pizza3.isHealthy());
+		System.out.println("pizza4 is healthy: " + pizza4.isHealthy());
+		System.out.println("pizza5 is healthy: " + pizza5.isHealthy());
+		System.out.println("pizza6 is healthy: " + pizza6.isHealthy());
+		System.out.println("pizza7 is healthy: " + pizza7.isHealthy());
+		System.out.println("pizza8 is healthy: " + pizza8.isHealthy());
+		System.out.println("notapizza is healthy: " + notapizza.isHealthy());
 	}
 }
