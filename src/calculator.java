@@ -11,27 +11,77 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class calculator {
-	private void SetUp() {
-		JFrame frame = new JFrame();
-		frame.setLayout(new BorderLayout());
-		JPanel panel = new JPanel();
-		panel.setLayout(new GridLayout(2, 2));
-		JTextField text1 = new JTextField();
-		JTextField text2 = new JTextField();
-		JButton plus = new JButton();
-		plus.setText("+");
-		JButton minus = new JButton();
-		minus.setText("-");
-		JButton mult = new JButton();
-		mult.setText("x");
-		JButton div = new JButton();
-		div.setText("/");
-		panel.add(div);
-		panel.add(mult);
-		panel.add(minus);
+public class calculator implements ActionListener {
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton plus = new JButton();
+	JButton minus = new JButton();
+	JButton multiply = new JButton();
+	JButton divide = new JButton();
+	JTextField input1 = new JTextField();
+	JTextField input2 = new JTextField();
+	JTextField answer = new JTextField();
+
+	public static void main(String[] args) {
+		calculator calc = new calculator();
+		calc.run();
+	}
+
+	public void run() {
+		panel.add(input1);
+		input1.setText("Input 1");
 		panel.add(plus);
-		panel.add(text1);
-		panel.add(text2);
+		plus.setText("+");
+		plus.addActionListener(this);
+		panel.add(minus);
+		minus.setText("-");
+		minus.addActionListener(this);
+		panel.add(multiply);
+		multiply.setText("x");
+		multiply.addActionListener(this);
+		panel.add(divide);
+		divide.setText("÷");
+		divide.addActionListener(this);
+		panel.add(input2);
+		input2.setText("Input 2");
+		panel.add(answer);
+		answer.setText("answer");
+		frame.add(panel);
+		frame.pack();
+		frame.setSize(2000, 1000);
+		frame.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == plus) {
+			String I1 = input1.getText();
+			double P1 = Double.parseDouble(I1);
+			String I2 = input2.getText();
+			double P2 = Double.parseDouble(I2);
+			answer.setText(String.valueOf(P1+P2));
+		}
+		if (e.getSource() == minus) {
+			String I1 = input1.getText();
+			double P1 = Double.parseDouble(I1);
+			String I2 = input2.getText();
+			double P2 = Double.parseDouble(I2);
+			answer.setText(String.valueOf(P1-P2));
+		}
+		if (e.getSource() == multiply) {
+			String I1 = input1.getText();
+			double P1 = Double.parseDouble(I1);
+			String I2 = input2.getText();
+			double P2 = Double.parseDouble(I2);
+			answer.setText(String.valueOf(P1*P2));
+		}
+		if (e.getSource() == divide) {
+			String I1 = input1.getText();
+			double P1 = Double.parseDouble(I1);
+			String I2 = input2.getText();
+			double P2 = Double.parseDouble(I2);
+			answer.setText(String.valueOf(P1/P2));
+		}
+
 	}
 }
