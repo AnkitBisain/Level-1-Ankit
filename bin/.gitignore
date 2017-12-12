@@ -19,6 +19,7 @@
 /Pizza.class
 /PizzaRobot.class
 /Popcorn.class
+/QuixMafs.class
 /Robot.jar
 /Ruler.class
 /SeaCreature.class
@@ -27,11 +28,13 @@
 /Smurf.class
 /SmurfRunner.class
 /Supply.class
+/SwingListenerExample.class
 /TeaBag.class
 /TeaMaker.class
 /TeaParty.class
 /TeaPartyRunner.class
 /Textbook.class
+/WhackAMole.class
 /calculator.class
 /down.png
 /download.jpg
@@ -40,4 +43,3 @@
 /methodpractice.class
 /right.png
 /up.png
-/WhackAMole.class
