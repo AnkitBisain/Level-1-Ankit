@@ -5,9 +5,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -70,12 +74,6 @@ public class PARTY implements ActionListener {
 		JLabel imageLabel = new JLabel(icon);
 		return imageLabel;
 	}
-
-	private void playSound(String fileName) {
-		AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
-		sound.play();
-	}
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
@@ -83,7 +81,7 @@ public class PARTY implements ActionListener {
 			if(state==0) {
 				picture.setVisible(true);
 				boar.setVisible(false);
-				playSound("someBODY.mp3");
+				playSound();
 				state=1;
 			}else {
 			if(state==1) {
@@ -92,6 +90,19 @@ public class PARTY implements ActionListener {
 				state=0;
 			}
 			}
+		}
+		
+	}
+	public void playSound() {
+		try {
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(
+					"src/someBODY.wav").toURI().toURL());
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInputStream);
+			clip.start();
+			Thread.sleep(3400);
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
 	}
 
