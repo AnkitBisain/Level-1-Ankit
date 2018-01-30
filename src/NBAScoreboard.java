@@ -89,7 +89,7 @@ public class NBAScoreboard {
 		frame.add(mainPanel);
 		frame.pack();
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);;
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public void changeHomeScore(int i){
