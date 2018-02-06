@@ -47,6 +47,8 @@ public class NBAControlPanel implements ActionListener {
 	JButton awayFouls2;
 	JButton awayTO1;
 	JButton awayTO2;
+	JButton homeButton;
+	JButton awayButton;
 	JTextField homeName;
 	JTextField awayName;
 
@@ -88,6 +90,8 @@ public class NBAControlPanel implements ActionListener {
 		awayTO2 = new JButton("-1");
 		homeName = new JTextField("Home");
 		awayName = new JTextField("Away");
+		homeButton = new JButton("enter");
+		awayButton = new JButton("enter");
 		homeOverall = new JPanel();
 		awayOverall = new JPanel();
 		homeName.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -112,7 +116,9 @@ public class NBAControlPanel implements ActionListener {
 		homeChange.add(homeScoreChange, BorderLayout.NORTH);
 		homeChange.add(homeTOChange, BorderLayout.CENTER);
 		homeChange.add(homeFoulsChange, BorderLayout.SOUTH);
-		homeTitle.add(homeName);
+		homeTitle.setLayout(new BorderLayout());
+		homeTitle.add(homeName, BorderLayout.CENTER);
+		homeTitle.add(homeButton, BorderLayout.SOUTH);
 		homeOverall.setLayout(new BorderLayout());
 		homeOverall.add(homeTitle, BorderLayout.NORTH);
 		homeOverall.add(homeChange, BorderLayout.CENTER);
@@ -132,25 +138,31 @@ public class NBAControlPanel implements ActionListener {
 		awayChange.add(awayScoreChange, BorderLayout.NORTH);
 		awayChange.add(awayTOChange, BorderLayout.CENTER);
 		awayChange.add(awayFoulsChange, BorderLayout.SOUTH);
-		awayTitle.add(awayName);
+		awayTitle.setLayout(new BorderLayout());
+		awayTitle.add(awayName, BorderLayout.CENTER);
+		awayTitle.add(awayButton, BorderLayout.SOUTH);
 		awayOverall.setLayout(new BorderLayout());
 		awayOverall.add(awayTitle, BorderLayout.NORTH);
 		awayOverall.add(awayChange, BorderLayout.CENTER);
 		mainPanel.setLayout(new BorderLayout());
 		mainPanel.add(homeOverall, BorderLayout.WEST);
 		mainPanel.add(awayOverall, BorderLayout.EAST);
+		
 		homeScore1.addActionListener(this);
 		homeScore2.addActionListener(this);
 		homeTO1.addActionListener(this);
 		homeTO2.addActionListener(this);
 		homeFouls1.addActionListener(this);
-		awayFouls2.addActionListener(this);
+		homeFouls2.addActionListener(this);
 		awayScore1.addActionListener(this);
 		awayScore2.addActionListener(this);
 		awayTO1.addActionListener(this);
 		awayTO2.addActionListener(this);
 		awayFouls1.addActionListener(this);
 		awayFouls2.addActionListener(this);
+		homeButton.addActionListener(this);
+		awayButton.addActionListener(this);
+		
 		frame.add(mainPanel);
 		frame.pack();
 		frame.setVisible(true);
@@ -163,37 +175,55 @@ public class NBAControlPanel implements ActionListener {
 			n.changeHomeScore(1);
 		}
 		if(e.getSource() == homeScore2) {
-			n.changeHomeScore(-1);
+			if(n.getHomeScore() > 0){
+				n.changeHomeScore(-1);
+			}
 		}
 		if(e.getSource() == homeTO1) {
 			n.changeHomeTO(1);
 		}
 		if(e.getSource() == homeTO2) {
+			if(n.getHomeTO()>0){
 			n.changeHomeTO(-1);
+			}
 		}
 		if(e.getSource() == homeFouls1) {
 			n.changeHomeFouls(1);
 		}
 		if(e.getSource() == homeFouls2) {
+			if(n.getHomeFouls()>0){
 			n.changeHomeFouls(-1);
+			}
 		}
 		if(e.getSource() == awayScore1) {
-			n.changeawayScore(1);
+			n.changeAwayScore(1);
 		}
 		if(e.getSource() == awayScore2) {
-			n.changeawayScore(-1);
+			if(n.getAwayScore() > 0){
+				n.changeAwayScore(-1);
+			}
 		}
 		if(e.getSource() == awayTO1) {
-			n.changeawayTO(1);
+			n.changeAwayTO(1);
 		}
 		if(e.getSource() == awayTO2) {
-			n.changeawayTO(-1);
+			if(n.getAwayTO()>0){
+			n.changeAwayTO(-1);
+			}
 		}
 		if(e.getSource() == awayFouls1) {
-			n.changeawayFouls(1);
+			n.changeAwayFouls(1);
 		}
 		if(e.getSource() == awayFouls2) {
-			n.changeawayFouls(-1);
+			if(n.getAwayFouls()>0){
+			n.changeAwayFouls(-1);
+			}
+		}
+		if(e.getSource() == homeButton) {
+			n.changeHomeName(this.homeName.getText());
+		}
+		if(e.getSource() == awayButton) {
+			n.changeAwayName(this.awayName.getText());
 		}
 	}
 

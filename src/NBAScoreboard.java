@@ -33,7 +33,7 @@ public class NBAScoreboard {
 	JButton hScore;
 	JButton awayTitle;
 	JButton aScore;
-	
+
 	public NBAScoreboard() {
 		this.homeName = "HOME";
 		this.awayName = "AWAY";
@@ -91,29 +91,68 @@ public class NBAScoreboard {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
-	public void changeHomeScore(int i){
-		this.homeScore+=i;
+
+	public void changeHomeScore(int i) {
+		this.homeScore += i;
 		hScore.setText(Integer.toString(homeScore));
 	}
-	public void changeHomeTO(int i){
-		this.homeTO+=i;
-		hScore.setText(Integer.toString(homeScore));
+
+	public void changeHomeTO(int i) {
+		this.homeTO += i;
+		hTO.setText(Integer.toString(homeTO));
 	}
-	public void changeHomeFouls(int i){
-		this.homeFouls+=i;
+
+	public void changeHomeFouls(int i) {
+		this.homeFouls += i;
 		hF.setText(Integer.toString(homeFouls));
 	}
-	public void changeawayScore(int i){
-		this.awayScore+=i;
+
+	public void changeHomeName(String s) {
+		this.homeName = s;
+		homeTitle.setText(s);
+	}
+
+	public void changeAwayScore(int i) {
+		this.awayScore += i;
 		aScore.setText(Integer.toString(awayScore));
 	}
-	public void changeawayTO(int i){
-		this.awayTO+=i;
-		aScore.setText(Integer.toString(awayScore));
+
+	public void changeAwayTO(int i) {
+		this.awayTO += i;
+		aTO.setText(Integer.toString(awayTO));
 	}
-	public void changeawayFouls(int i){
-		this.awayFouls+=i;
+
+	public void changeAwayFouls(int i) {
+		this.awayFouls += i;
 		aF.setText(Integer.toString(awayFouls));
+	}
+
+	public void changeAwayName(String s) {
+		this.awayName = s;
+		awayTitle.setText(s);
+	}
+
+	public int getHomeScore() {
+		return this.homeScore;
+	}
+
+	public int getHomeTO() {
+		return this.homeTO;
+	}
+
+	public int getHomeFouls() {
+		return this.homeFouls;
+	}
+
+	public int getAwayScore() {
+		return this.awayScore;
+	}
+
+	public int getAwayTO() {
+		return this.awayTO;
+	}
+
+	public int getAwayFouls() {
+		return this.awayFouls;
 	}
 }
