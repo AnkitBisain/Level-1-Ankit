@@ -49,20 +49,22 @@ public class NBAScoreboard {
 		awayPanel = new JPanel();
 		awayStuff = new JPanel();
 		mainPanel = new JPanel();
-		hTOText = new JLabel("TIMEOUTS");
+		hTOText = new JLabel("TIMEOUTS:");
 		hTO = new JLabel(Integer.toString(homeTO));
-		aTOText = new JLabel("TIMEOUTS");
+		aTOText = new JLabel("TIMEOUTS:");
 		aTO = new JLabel(Integer.toString(awayTO));
-		hFouls = new JLabel("FOULS");
+		hFouls = new JLabel("FOULS:");
 		hF = new JLabel(Integer.toString(homeFouls));
-		aFouls = new JLabel("FOULS");
+		aFouls = new JLabel("FOULS:");
 		aF = new JLabel(Integer.toString(awayFouls));
 		homeTitle = new JButton("HOME");
 		hScore = new JButton(Integer.toString(homeScore));
 		awayTitle = new JButton("AWAY");
 		aScore = new JButton(Integer.toString(awayScore));
-		hScore.setFont(new Font("Arial", Font.PLAIN, 40));
-		aScore.setFont(new Font("Arial", Font.PLAIN, 40));
+		hScore.setFont(new Font("DIALOG", Font.BOLD, 40));
+		aScore.setFont(new Font("DIALOG", Font.BOLD, 40));
+		homeTitle.setFont(new Font("Monospaced Plain", Font.PLAIN, 30));
+		awayTitle.setFont(new Font("Monospaced Plain", Font.PLAIN, 30));
 		run();
 	}
 

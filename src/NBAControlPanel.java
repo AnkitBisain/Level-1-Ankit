@@ -47,8 +47,6 @@ public class NBAControlPanel implements ActionListener {
 	JButton awayFouls2;
 	JButton awayTO1;
 	JButton awayTO2;
-	JButton homeButton;
-	JButton awayButton;
 	JTextField homeName;
 	JTextField awayName;
 
@@ -90,8 +88,6 @@ public class NBAControlPanel implements ActionListener {
 		awayTO2 = new JButton("-1");
 		homeName = new JTextField("Home");
 		awayName = new JTextField("Away");
-		homeButton = new JButton("enter");
-		awayButton = new JButton("enter");
 		homeOverall = new JPanel();
 		awayOverall = new JPanel();
 		homeName.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -118,7 +114,6 @@ public class NBAControlPanel implements ActionListener {
 		homeChange.add(homeFoulsChange, BorderLayout.SOUTH);
 		homeTitle.setLayout(new BorderLayout());
 		homeTitle.add(homeName, BorderLayout.CENTER);
-		homeTitle.add(homeButton, BorderLayout.SOUTH);
 		homeOverall.setLayout(new BorderLayout());
 		homeOverall.add(homeTitle, BorderLayout.NORTH);
 		homeOverall.add(homeChange, BorderLayout.CENTER);
@@ -140,7 +135,6 @@ public class NBAControlPanel implements ActionListener {
 		awayChange.add(awayFoulsChange, BorderLayout.SOUTH);
 		awayTitle.setLayout(new BorderLayout());
 		awayTitle.add(awayName, BorderLayout.CENTER);
-		awayTitle.add(awayButton, BorderLayout.SOUTH);
 		awayOverall.setLayout(new BorderLayout());
 		awayOverall.add(awayTitle, BorderLayout.NORTH);
 		awayOverall.add(awayChange, BorderLayout.CENTER);
@@ -160,8 +154,8 @@ public class NBAControlPanel implements ActionListener {
 		awayTO2.addActionListener(this);
 		awayFouls1.addActionListener(this);
 		awayFouls2.addActionListener(this);
-		homeButton.addActionListener(this);
-		awayButton.addActionListener(this);
+		homeName.addActionListener(this);
+		awayName.addActionListener(this);
 		
 		frame.add(mainPanel);
 		frame.pack();
@@ -219,10 +213,10 @@ public class NBAControlPanel implements ActionListener {
 			n.changeAwayFouls(-1);
 			}
 		}
-		if(e.getSource() == homeButton) {
+		if(e.getSource() == homeName) {
 			n.changeHomeName(this.homeName.getText());
 		}
-		if(e.getSource() == awayButton) {
+		if(e.getSource() == awayName) {
 			n.changeAwayName(this.awayName.getText());
 		}
 	}
